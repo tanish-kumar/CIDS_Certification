@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Generate Student QR</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f4f6f8;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 50px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        button {
+            padding: 15px;
+            width: 100%;
+            background: #ff950a;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #e07b00;
+        }
+
+        h2 {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="/qr-generator" method="POST">
+        <h2>Generate Student QR</h2>
+        <input type="number" name="id" placeholder="Form Number / ID" required>
+        <input type="text" name="name" placeholder="Student Name" required>
+        <button type="submit">Generate QR</button>
+        <br><br>
+        <div style="text-align: center; margin-bottom: 20px;">
+            <a href="/" style="
+                display: inline-block;
+                padding: 10px 20px;
+                background: #ff950a;
+                color: white;
+                border-radius: 8px;
+                text-decoration: none;
+                font-weight: 600;
+                transition: 0.3s;
+            " onmouseover="this.style.background='#e07b00'" onmouseout="this.style.background='#ff950a'">
+                ← Back to Dashboard
+            </a>
+        </div>
+    </form>
+</body>
+
+</html>

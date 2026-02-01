@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Add Student</title>
+    <style>
+        /* Reset some default styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: #f4f6f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .form-container {
+            background: #fff;
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #ff950a;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: #ff950a;
+            outline: none;
+            box-shadow: 0 0 5px rgba(255, 149, 10, 0.3);
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            background: #ff950a;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #e07b00;
+        }
+
+        @media(max-width: 600px) {
+            .form-container {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form-container">
+        <div style="text-align: center; margin-bottom: 20px;">
+            <a href="/" style="
+                display: inline-block;
+                padding: 10px 20px;
+                background: #ff950a;
+                color: white;
+                border-radius: 8px;
+                text-decoration: none;
+                font-weight: 600;
+                transition: 0.3s;
+            " onmouseover="this.style.background='#e07b00'" onmouseout="this.style.background='#ff950a'">
+                ← Back to Dashboard
+            </a>
+        </div>
+        <h2>Add Student Details</h2>
+        <form action="/add-student" method="POST">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" placeholder="Enter student name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="text" name="phone" id="phone" placeholder="Enter phone number" required>
+            </div>
+
+            <div class="form-group">
+                <label for="course">Course</label>
+                <input type="text" name="course" id="course" placeholder="Enter course name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="percentage">Percentage</label>
+                <input type="text" name="percentage" id="percentage" placeholder="Enter completion percentage" required>
+            </div>
+
+            <div class="form-group">
+                <label for="completion_date">Completion Date</label>
+                <input type="date" name="completion_date" id="completion_date" required>
+            </div>
+
+            <div class="form-group">
+                <label for="address">Address</label>
+                <textarea name="address" id="address" rows="3" placeholder="Enter full address" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="subjects">Subjects</label>
+                <textarea name="subjects" id="subjects" rows="3" placeholder="Enter subjects separated by comma"
+                    required></textarea>
+            </div>
+
+            <button type="submit">Add Student</button>
+        </form>
+    </div>
+</body>
+
+</html>

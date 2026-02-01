@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Institute Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            gap: 40px;
+        }
+
+        .btn {
+            padding: 20px 30px;
+            background: #ff950a;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #e07b00;
+            transform: translateY(-3px);
+        }
+
+        @media(max-width: 600px) {
+            .container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div style="text-align: center; margin: 30px 0;">
+        <img src="/logo.png" alt="Institute Logo" style="max-width: 300px; width: 80%; height: auto;">
+    </div>
+
+    <div class="container">
+        <a href="/add-student" class="btn">Add Complete Student Details</a>
+        <a href="/report" class="btn">Student Complete Report</a>
+        <a href="/qr-generator" class="btn">Generate Student QR</a>
+    </div>
+</body>
+
+</html>

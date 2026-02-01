@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Certificate Verification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background: white;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .header {
+            background: #008612;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        .header img {
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            height: 60px;
+            width: auto;
+        }
+
+        .header h2 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background: #00a716;
+            color: white;
+        }
+
+        @media (max-width: 600px) {
+            .header h2 {
+                font-size: 18px;
+            }
+
+            .header img {
+                height: 40px;
+                top: 10px;
+                left: 10px;
+            }
+
+            th,
+            td {
+                padding: 10px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="header">
+            <img src="/logo.png" alt="Institute Logo">
+            <h2>Student Course Completion Details</h2>
+        </div>
+
+        <table>
+            <tr>
+                <td>Name</td>
+                <td><%= student.name %></td>
+            </tr>
+            <tr>
+                <td>Phone</td>
+                <td><%= student.phone %></td>
+            </tr>
+            <tr>
+                <td>Course</td>
+                <td><%= student.course %></td>
+            </tr>
+            <tr>
+                <td>Percentage</td>
+                <td><%= student.percentage %></td>
+            </tr>
+            <tr>
+                <td>Completion Date</td>
+                <td><%= student.completion_date %></td>
+            </tr>
+            <tr>
+                <td>Address</td>
+                <td><%= student.address %></td>
+            </tr>
+            <tr>
+                <td>Subjects</td>
+                <td><%= student.subjects %></td>
+            </tr>
+        </table>
+    </div>
+
+</body>
+
+</html>

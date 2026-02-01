@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Student Report</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #ff950a;
+        }
+
+        .search-container {
+            max-width: 500px;
+            margin: 0 auto 20px auto;
+            display: flex;
+            gap: 10px;
+        }
+
+        .search-container input {
+            flex: 1;
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .search-container input:focus {
+            border-color: #ff950a;
+            outline: none;
+            box-shadow: 0 0 5px rgba(255, 149, 10, 0.3);
+        }
+
+        .search-container button {
+            padding: 10px 20px;
+            background: #ff950a;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .search-container button:hover {
+            background: #e07b00;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        th,
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background: #ff950a;
+            color: white;
+        }
+
+        tr:hover {
+            background: #f9f9f9;
+        }
+
+        @media(max-width: 768px) {
+
+            table,
+            thead,
+            tbody,
+            th,
+            td,
+            tr {
+                display: block;
+            }
+
+            th {
+                display: none;
+            }
+
+            td {
+                display: flex;
+                justify-content: space-between;
+                padding: 10px;
+                border: none;
+                border-bottom: 1px solid #ddd;
+            }
+
+            td::before {
+                content: attr(data-label);
+                font-weight: 600;
+                width: 50%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <h2>All Students Report</h2>
+
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search by Name or Phone">
+        <button onclick="searchTable()">Search</button>
+    </div>
+    <div style="text-align: center; margin-bottom: 20px;">
+        <a href="/" style="
+            display: inline-block;
+            padding: 10px 20px;
+            background: #ff950a;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        " onmouseover="this.style.background='#e07b00'" onmouseout="this.style.background='#ff950a'">
+            ← Back to Dashboard
+        </a>
+    </div>
+    <table id="studentsTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Course</th>
+                <th>Percentage</th>
+                <th>Completion Date</th>
+                <th>Address</th>
+                <th>Subjects</th>
+                <th>Certificate</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% students.forEach(student=> { %>
+                <tr>
+                    <td data-label="Name">
+                        <%= student.name %>
+                    </td>
+                    <td data-label="Phone">
+                        <%= student.phone %>
+                    </td>
+                    <td data-label="Course">
+                        <%= student.course %>
+                    </td>
+                    <td data-label="Percentage">
+                        <%= student.percentage %>
+                    </td>
+                    <td data-label="Completion Date">
+                        <%= student.completion_date %>
+                    </td>
+                    <td data-label="Address">
+                        <%= student.address %>
+                    </td>
+                    <td data-label="Subjects">
+                        <%= student.subjects %>
+                    </td>
+                    <td data-label="Certificate"><a href="/verify/<%= student.id %>" target="_blank">View</a></td>
+                </tr>
+                <% }) %>
+        </tbody>
+    </table>
+
+    <script>
+        function searchTable() {
+            const input = document.getElementById("searchInput").value.toLowerCase();
+            const table = document.getElementById("studentsTable");
+            const rows = table.getElementsByTagName("tr");
+
+            for (let i = 1; i < rows.length; i++) {
+                const name = rows[i].cells[0].innerText.toLowerCase();
+                const phone = rows[i].cells[1].innerText.toLowerCase();
+
+                if (name.includes(input) || phone.includes(input)) {
+                    rows[i].style.display = "";
+                } else {
+                    rows[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
